@@ -8,8 +8,8 @@ class SteamSpiderSpider(scrapy.Spider):
     start_urls = ['https://store.steampowered.com/search/?filter=topsellers/']
 
     def parse(self, response):
-        links = response.xpath('//a[@class="search_result_row ds_collapse_flag"]/href').extract()
-        response.follow(links[4])
+        links = response.xpath('//a[@class="search_result_row ds_collapse_flag"]/@href').extract()
+        # response.follow(links[4])
 
         for i in range(len(links)):
         	scrapy.Request(link[i], callback=self.product_info)
