@@ -9,6 +9,9 @@ import scrapy
 
 
 class SteamItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    name = scrapy.Field()
+    price = scrapy.Field()
+    date = scrapy.Field()
+    dev = scrapy.Field()
+    pub = scrapy.Field()
+    cat = scrapy.Field()
