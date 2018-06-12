@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from nuuvem.items import NuuvemItem
+from games.items import GamesItem
 
-
-class ListaProdutosSpider(scrapy.Spider):
-	name = 'lista_produtos'
+class NuuvemSpiderSpider(scrapy.Spider):
+	name = 'nuuvem_spider'
 	allowed_domains = ['nuuvem.com']
 	start_urls = ['https://www.nuuvem.com/catalog/sort/bestselling/sort-mode/desc/page/1']
 
@@ -24,5 +23,5 @@ class ListaProdutosSpider(scrapy.Spider):
 		dev = response.xpath('//ul[@class="product-widget--list"]/li[2]/text()')[1].extract().strip()
 		pub = response.xpath('//ul[@class="product-widget--list"]/li[3]/text()')[1].extract().strip()
 		cat = response.xpath('//a[@class="label"]/text()').extract() #Lista de categorias
-		game = NuuvemItem(name = name, price = price, date = date, dev = dev, pub = pub, cat = cat)		
+		game = GamesItem(name = name, price = price, date = date, dev = dev, pub = pub, cat = cat)		
 		yield game

@@ -8,7 +8,7 @@
 import scrapy
 
 
-class SteamItem(scrapy.Item):
+class GamesItem(scrapy.Item):
     name = scrapy.Field()
     price = scrapy.Field()
     date = scrapy.Field()
